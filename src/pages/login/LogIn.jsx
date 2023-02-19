@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 function LogIn() {
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TODO: Validate the user's credentials and log them in
+  };
+
   return (
-    <div>LogIn</div>
+    <div>
+      <form onSubmit={handleSubmit}>
+      <label>
+        Username:
+        <input type="text" value={username} onChange={handleUsernameChange} />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input type="password" value={password} onChange={handlePasswordChange} />
+      </label>
+      <br />
+      <button type="submit">Log In</button>
+    </form>
+    </div>
   )
 }
 

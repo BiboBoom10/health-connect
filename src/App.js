@@ -1,12 +1,14 @@
 import './App.css';
-// import Card from './components/Card';
+
+import GetStarted from './pages/getstarted/GetStarted';
 import SignUp from './pages/signup/SignUp';
+
 
 function App() {
   return (
     <div>   
-      <SignUp />
-      {/* <Card /> */}
+      <GetStarted />
+      {/* <SignUp /> */}
     </div>
   );
 }
