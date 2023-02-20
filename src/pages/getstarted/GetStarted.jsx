@@ -14,7 +14,7 @@ function GetStarted() {
       </div>
 
       <div className={classes.content}>
-        <h1>Health Connect</h1>
+        <h1 className={classes.heading}>Health Connect</h1>
         <p>Begin your journey to connect with your doctor in just a few easy steps</p>
 
         <Button>Get Started <AiOutlineArrowRight className={classes.arrow}/> </Button>

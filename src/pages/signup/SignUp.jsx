@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import classes from './SignUp.module.css';
+import Button from '../../components/Button/Button';
+import User1 from '../../Images/User1.svg';
 
 function SignUp() {
 
@@ -7,52 +10,75 @@ function SignUp() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleUsernameChange = (event) => {
+    const UsernameChangeHandler = (event) => {
       setUsername(event.target.value);
     };
 
-    const handleEmailChange = (event) => {
+    const EmailChangeHandler = (event) => {
       setEmail(event.target.value);
     };
 
-    const handlePasswordChange = (event) => {
+    const PasswordChangeHandler = (event) => {
       setPassword(event.target.value);
     };
 
-    const handleConfirmPasswordChange = (event) => {
+    const ConfirmPasswordChangeHandler = (event) => {
       setConfirmPassword(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    const SubmitHandler = (event) => {
       event.preventDefault();
-      // TODO: Validate the user's input and submit the form to the server
+     
+
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
     };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={handleUsernameChange} />
-      </label>
-      <br />
-      <label>
-        Email:
-        <input type="email" value={email} onChange={handleEmailChange} />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input type="password" value={password} onChange={handlePasswordChange} />
-      </label>
-      <br />
-      <label>
-        Confirm Password:
-        <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
-      </label>
-      <br />
-      <button type="submit">Sign Up</button>
-    </form>
+    <div className={classes.partition}>
+
+      <div className={classes.signup}>
+        <img src={ User1 } alt="user" className={classes.users}/>
+        <h1 className={classes.heading}>Hello Friend!</h1>
+        <p>Enter Your Personal Details And Start A Journey With Us.</p>
+      </div>
+
+      <div className={classes.content}>
+
+        <form onSubmit={SubmitHandler}>
+
+          <h1 className={classes.heading}>Create Account</h1>
+
+          <label>
+            {/* Username: */}
+            <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="UserName"/>
+          </label>
+          <br />
+          <label>
+            {/* Email: */}
+            <input className={classes['my-input']} type="email" value={email} onChange={EmailChangeHandler} placeholder="Email"/>
+          </label>
+          <br />
+          <label>
+            {/* Password: */}
+            <input className={classes['my-input']} type="password" value={password} onChange={PasswordChangeHandler} placeholder="Password"/>
+          </label>
+          <br />
+          <label>
+            {/* Confirm Password: */}
+            <input className={classes['my-input']} type="password" value={confirmPassword} onChange={ConfirmPasswordChangeHandler} placeholder="Confirm Password" />
+          </label>
+          <br />
+
+          <div className={classes['button-position']}>
+            <Button className={classes['button-position']} type="submit">Sign Up</Button>
+          </div>
+          
+        </form>
+      </div>
+      
     </div>
   )
 }

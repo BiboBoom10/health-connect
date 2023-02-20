@@ -1,0 +1,52 @@
+.partition {
+    height: 100vh;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.heading {
+    color: #383838;
+    font-size: 4rem;
+    margin-top: -5rem;
+}
+
+.users {
+    height: 15rem;
+    margin-top: -1rem;
+    margin-bottom: 5rem;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 50%;
+    background-color: #c7ffff;
+}
+
+.content {
+    /* border: 0.1rem solid gray; */
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20%;;
+    align-items: center;
+}
+
+.my-input {
+    padding: 0.8rem;
+    margin: 0.5rem;
+    width: 200%;
+    border-color: rgba(128, 128, 128, 0.147);
+    border-radius: 0.25rem;
+}
+
+.button-position {
+    display: flex;
+    position: absolute;
+    right: 13%;
+}
