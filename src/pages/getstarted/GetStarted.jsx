@@ -15,7 +15,7 @@ function GetStarted() {
 
       <div className={classes.content}>
         <h1 className={classes.heading}>Health Connect</h1>
-        <p>Begin your journey to connect with your doctor in just a few easy steps</p>
+        <p className={classes['my-text']}>Begin your journey to connect with your doctor in just a few easy steps</p>
 
         <Button>Get Started <AiOutlineArrowRight className={classes.arrow}/> </Button>
       </div>
