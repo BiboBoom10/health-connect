@@ -13,6 +13,7 @@ function Home() {
                 <div className={classes.left}>
                     <h1>Welcome to Health Connect</h1>
                     <p>Get access to the best medical care and advice, right from your device.</p>
+                    <button className={classes['button-1']} type='submit'> Sign Up Now </button>
                 </div>
 
                 <div className={classes['my-image']}>
@@ -21,6 +22,13 @@ function Home() {
             </div>
             
         </div>
+
+        <div className={classes['box-align']}>
+            <div className={classes.box}>
+
+            </div>
+        </div>
+        
        
     </div>
   )

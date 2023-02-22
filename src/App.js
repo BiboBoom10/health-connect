@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/Nav/NavBar';
+import AboutUs from './pages/about/AboutUs';
 
 import GetStarted from './pages/getstarted/GetStarted';
 import Home from './pages/home/Home';
@@ -14,7 +15,8 @@ function App() {
       {/* <SignUp /> */}
       {/* <LogIn /> */}
       {/* <NavBar /> */}
-      <Home />
+      {/* <Home /> */}
+      <AboutUs />
     </div>
   );
 }
