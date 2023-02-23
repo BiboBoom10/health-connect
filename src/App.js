@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from './components/Nav/NavBar';
 import AboutUs from './pages/about/AboutUs';
+import Contacts from './pages/contacts/Contacts';
 
 import GetStarted from './pages/getstarted/GetStarted';
 import Home from './pages/home/Home';
@@ -16,7 +17,8 @@ function App() {
       {/* <LogIn /> */}
       {/* <NavBar /> */}
       {/* <Home /> */}
-      <AboutUs />
+      {/* <AboutUs /> */}
+      <Contacts />
     </div>
   );
 }

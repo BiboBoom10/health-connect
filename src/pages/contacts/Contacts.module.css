@@ -1,0 +1,43 @@
+.content-align {
+    height: 90vh;
+    /* border: 0.1rem solid gray; */
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.image-align {
+    /* border: 0.1rem solid gray; */
+}
+
+.image-align img {
+    height: 30rem;
+}
+
+.heading {
+    color: #383838;
+    font-size: 3rem;
+    margin-top: -2rem;
+}
+
+.my-text {
+    color: #5a5a5a;
+    text-align: justify;
+    font-size: 1.2em;
+    margin-top: -1rem;
+}
+
+.text-2 {
+    font-weight: 600;
+    margin-left: 1rem;
+}
+
+.text-3 {
+    font-weight: 600;
+    margin-left: 1.7rem
+}
