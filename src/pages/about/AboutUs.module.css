@@ -2,6 +2,7 @@
     height: 85vh;
     display: flex;
     justify-content: center;
+    margin-top: 5rem;
     /* border: 0.1rem solid gray; */
 }
 
@@ -31,7 +32,8 @@
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    background-color: #f7f7f7;
+    /* background-color: #f7f7f7; */
+    margin: 0 2rem;
 }
 
 .align-about h1 {

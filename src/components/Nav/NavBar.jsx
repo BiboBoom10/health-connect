@@ -5,7 +5,7 @@ import classes from './NavBar.module.css';
 
 function NavBar() {
   return (
-    <div>
+    <div className={classes['nav-position']}>
         <nav className={classes.content}>
             <div>
                 <Heading>Health Connect</Heading>

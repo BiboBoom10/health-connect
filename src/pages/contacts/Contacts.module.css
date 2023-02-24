@@ -1,5 +1,6 @@
 .content-align {
     height: 90vh;
+    margin-top: 4rem;
     /* border: 0.1rem solid gray; */
     display: flex;
     justify-content: center;

@@ -1,6 +1,7 @@
 .home {
     display: flex;
     justify-content: center;
+    margin-top: 5rem;
 }
 
 .content {
@@ -66,7 +67,7 @@
 }
 
 .box {
-    background-color: #ff7426;
+    background-color: #ffae80;
     width: 92%;
     height: 20vh;
 }

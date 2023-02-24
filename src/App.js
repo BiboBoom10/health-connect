@@ -17,10 +17,10 @@ function App() {
       {/* <SignUp /> */}
       {/* <LogIn /> */}
       {/* <NavBar /> */}
-      {/* <Home /> */}
+      <Home />
       {/* <AboutUs /> */}
       {/* <Contacts /> */}
-      <Blog />
+      {/* <Blog /> */}
     </div>
   );
 }
