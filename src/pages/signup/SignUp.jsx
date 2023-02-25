@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classes from './SignUp.module.css';
 import Button from '../../components/Button/Button';
 import User1 from '../../Images/User1.svg';
+import Error from '../../components/ErrorModal/Error';
 
 function SignUp() {
 
@@ -9,6 +10,7 @@ function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState();
 
     const UsernameChangeHandler = (event) => {
       setUsername(event.target.value);
@@ -28,6 +30,14 @@ function SignUp() {
 
     const SubmitHandler = (event) => {
       event.preventDefault();
+
+      if(username.trim().length === 0 || email.trim().length ===0 || password.trim().length === 0 || confirmPassword.trim().length === 0){
+        setError({
+          title : "Invalid Input",
+          message: "Fill all the input fields"
+        });
+        return;
+      }
      
 
       setUsername("");
@@ -36,8 +46,14 @@ function SignUp() {
       setConfirmPassword("");
     };
 
+    const errorHandler = () => {
+      setError(null);
+    }
+
   return (
     <div className={classes.partition}>
+
+      { error && <Error title={error.title} message={error.message} onConfirm={errorHandler}/>}
 
       <div className={classes.signup}>
         <img src={ User1 } alt="user" className={classes.users}/>

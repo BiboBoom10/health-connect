@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import classes from './LogIn.module.css';
 import Button from '../../components/Button/Button';
 import User1 from '../../Images/User1.svg';
+import Error from '../../components/ErrorModal/Error';
 
 function LogIn() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState();
 
   const UsernameChangeHandler = (event) => {
     setUsername(event.target.value);
@@ -18,13 +20,27 @@ function LogIn() {
 
   const SubmitHandler = (event) => {
     event.preventDefault();
+
+    if(username.trim().length === 0 || password.trim().length === 0){
+      setError({
+        title : "Invalid Input",
+        message: "Enter a valid username and password"
+      });
+      return;
+    }
     
     setUsername("");
     setPassword("");
   };
 
+  const errorHandler = () => {
+    setError(null);
+  }
+
   return (
     <div className={classes.partition}>
+
+    { error && <Error title={error.title} message={error.message} onConfirm={errorHandler}/>}
 
       <div className={classes.login}>
         <img src={ User1 } alt="user" className={classes.users}/>
