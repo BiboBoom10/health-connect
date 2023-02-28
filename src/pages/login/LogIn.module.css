@@ -2,13 +2,13 @@
     height: 100vh;
     display: flex;
     align-items:center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .heading {
     color: #383838;
     font-size: 4rem;
-    margin-top: -5rem;
+    margin-top: -7rem;
 }
 
 .users {
@@ -23,14 +23,14 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 50%;
+    flex: 1;
     background-color: #c7ffff;
 }
 
 .content {
     /* border: 0.1rem solid gray; */
     height: 100vh;
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: flex-start;
     margin-left: 20%;;
@@ -40,7 +40,7 @@
 .my-input {
     padding: 0.8rem;
     margin: 0.5rem;
-    width: 200%;
+    width: 160%;
     border-color: rgba(128, 128, 128, 0.147);
     border-radius: 0.25rem;
 }
@@ -49,4 +49,44 @@
     display: flex;
     position: absolute;
     right: 13%;
+}
+
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 0.1rem solid gray;  */
+    width: 170%;
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tabs div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabs-active {
+    color: #f93a13;
+    cursor: pointer;
+    font-weight: 600;
+    border-bottom: 0.25rem solid #f93a13;
+    padding: 0.1rem 4rem;
+    transition: 0.5s ease-out;
+}
+
+.tabs-active p {
+    font-weight: bold;
+}
+
+.tabs-inactive {
+    color: #686868;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tabs-inactive > div {
+    visibility: hidden;
 }

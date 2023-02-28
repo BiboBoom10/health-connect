@@ -11,6 +11,7 @@ function SignUp() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState();
+    const [doctorSignUp, setDoctorSignUp] = useState(true);
 
     const UsernameChangeHandler = (event) => {
       setUsername(event.target.value);
@@ -67,6 +68,23 @@ function SignUp() {
 
           <h1 className={classes.heading}>Create Account</h1>
 
+          <div className={classes.tabs}>
+
+            <div className={doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(true)}>
+                <p>Patient</p>
+            </div>
+
+            <div className={!doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(false)}>
+                <p>Doctor</p>
+            </div>
+
+          </div>
+
+
+          { !doctorSignUp && <label>
+            {/* Username: */}
+            <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="Doctor Ref. No."/>
+          </label>}
           <label>
             {/* Username: */}
             <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="UserName"/>
@@ -90,6 +108,10 @@ function SignUp() {
 
           <div className={classes['button-position']}>
             <Button className={classes['button-position']} type="submit">Sign Up</Button>
+          </div>
+
+          <div>
+            {/* <p>Sign Up as a Doctor? <span>Sign Up</span></p> */}
           </div>
           
         </form>

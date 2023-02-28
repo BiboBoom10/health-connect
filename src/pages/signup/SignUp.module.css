@@ -8,7 +8,7 @@
 .heading {
     color: #383838;
     font-size: 4rem;
-    margin-top: -5rem;
+    margin-top: -4rem;
 }
 
 .users {
@@ -48,4 +48,43 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 11%;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 0.1rem solid gray; */
+    width: 85%;
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tabs div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabs-active {
+    color: #f93a13;
+    cursor: pointer;
+    font-weight: 600;
+    border-bottom: 0.25rem solid #f93a13;
+    padding: 0.1rem 4rem;
+    transition: 0.5s ease-out;
+}
+
+.tabs-active p {
+    font-weight: bold;
+}
+
+.tabs-inactive {
+    color: #686868;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tabs-inactive > div {
+    visibility: hidden;
 }

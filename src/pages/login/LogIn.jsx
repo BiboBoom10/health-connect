@@ -9,6 +9,7 @@ function LogIn() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState();
+  const [doctorSignUp, setDoctorSignUp] = useState(true);
 
   const UsernameChangeHandler = (event) => {
     setUsername(event.target.value);
@@ -54,10 +55,27 @@ function LogIn() {
 
           <h1 className={classes.heading}>Log In</h1>
 
-          <label>
+          <div className={classes.tabs}>
+
+            <div className={doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(true)}>
+                <p>Patient</p>
+            </div>
+
+            <div className={!doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(false)}>
+                <p>Doctor</p>
+            </div>
+
+          </div>
+
+
+          {!doctorSignUp && <label>
+            {/* Username: */}
+            <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="Doctor Ref. No."/>
+          </label>}
+          {doctorSignUp && <label>
             {/* Username: */}
             <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="UserName"/>
-          </label>
+          </label>}
           <br />
           <label>
             {/* Password: */}
