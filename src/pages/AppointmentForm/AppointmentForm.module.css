@@ -1,0 +1,86 @@
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+    padding: 2rem 0;
+    margin-top: -2rem;
+}
+
+.form-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+}
+
+.form-data label {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0 8rem; */
+}
+
+.form-data input {
+    width: 65%;
+    padding: 0.6rem;
+    margin-left: 2rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid #f9391324;
+}
+
+.form-data select {
+    width:69%;
+    padding: 0.6rem;
+    margin-left: 2rem;
+    color: #f4fefe;
+    background-color: #ff7626bf;
+    border-radius: 0.4rem;
+    border: none;
+}
+
+.form-data option {
+    background-color: #f4f4f4;
+    color: #383838;
+}
+
+.form-data option:hover{
+    background-color: #f4fefe;
+}
+
+.both {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* height: 90vh; */
+    width: 100%;
+    /* border: 0.1rem solid gray; */
+}
+
+.both div {
+    width: 100%;
+    
+}
+
+.heading {
+    color: #383838;
+    font-size: 3rem;
+    margin-top: 7rem;
+    /* margin-left: 2%; */
+    text-align: center;
+}
+
+.my-button {
+    padding: 1rem 1.5rem;
+    border: 0.1rem solid #ff7626bf;
+    border-radius: 0.2rem;
+    transform: scale(0.9);
+    transition: 0.2s ease-out;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.my-button:hover {
+    background-color: #ff7426;
+    color: #f4f4f4;
+}

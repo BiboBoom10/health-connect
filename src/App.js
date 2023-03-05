@@ -4,6 +4,7 @@ import AboutUs from './pages/about/AboutUs';
 import AppointmentForm from './pages/AppointmentForm/AppointmentForm';
 import Blog from './pages/Blog/Blog';
 import Contacts from './pages/contacts/Contacts';
+import Dashboard from './pages/Dashboard/Dashboard';
 import GetStarted from './pages/getstarted/GetStarted';
 import Home from './pages/home/Home';
 import LogIn from './pages/login/LogIn';
@@ -14,7 +15,7 @@ function App() {
   return (
     <div>   
       {/* <GetStarted /> */}
-      <SignUp />
+      {/* <SignUp /> */}
       {/* <LogIn /> */}
       {/* <NavBar /> */}
       {/* <Home /> */}
@@ -22,6 +23,7 @@ function App() {
       {/* <Contacts /> */}
       {/* <Blog /> */}
       {/* <AppointmentForm /> */}
+      <Dashboard />
     </div>
   );
 }
