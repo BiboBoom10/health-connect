@@ -22,8 +22,8 @@ function App() {
       {/* <AboutUs /> */}
       {/* <Contacts /> */}
       {/* <Blog /> */}
-      {/* <AppointmentForm /> */}
-      <Dashboard />
+      <AppointmentForm />
+      {/* <Dashboard /> */}
     </div>
   );
 }
