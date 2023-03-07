@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/Nav/NavBar';
+import Person from './components/Person/Person';
 import AboutUs from './pages/about/AboutUs';
 import AppointmentForm from './pages/AppointmentForm/AppointmentForm';
 import Blog from './pages/Blog/Blog';
@@ -22,8 +23,9 @@ function App() {
       {/* <AboutUs /> */}
       {/* <Contacts /> */}
       {/* <Blog /> */}
-      <AppointmentForm />
+      {/* <AppointmentForm /> */}
       {/* <Dashboard /> */}
+      <Person />
     </div>
   );
 }
