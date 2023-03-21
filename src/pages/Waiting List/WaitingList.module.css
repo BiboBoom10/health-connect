@@ -1,0 +1,35 @@
+.page {
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    top: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 10rem;
+}
+
+.content {
+    background-color: #c7ffff;
+    margin: 1rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    align-items: center;
+    border-radius: 0.2rem;
+}
+
+.content strong {
+    font-size: 1.25rem;
+}
+
+.content div {
+    flex: 1;
+}
+
+.bold {
+    font-weight: bold;
+}

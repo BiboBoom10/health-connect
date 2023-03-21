@@ -12,6 +12,7 @@ function SignUp() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState();
     const [doctorSignUp, setDoctorSignUp] = useState(true);
+    const [preferredPhysician, setPreferredPhysician] = useState('');
 
     const UsernameChangeHandler = (event) => {
       setUsername(event.target.value);
@@ -64,7 +65,7 @@ function SignUp() {
 
       <div className={classes.content}>
 
-        <form onSubmit={SubmitHandler}>
+        <form onSubmit={SubmitHandler} className={classes['form-data']}>
 
           <h1 className={classes.heading}>Create Account</h1>
 
@@ -85,15 +86,27 @@ function SignUp() {
             {/* Username: */}
             <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="Doctor Ref. No."/>
           </label>}
-          <label>
+          { doctorSignUp && <label>
             {/* Username: */}
             <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="UserName"/>
-          </label>
+          </label>}
           <br />
           <label>
             {/* Email: */}
             <input className={classes['my-input']} type="email" value={email} onChange={EmailChangeHandler} placeholder="Email"/>
           </label>
+          <br />
+          {!doctorSignUp &&  <label htmlFor="preferredPhysician">
+            <select id="preferredPhysician" value={preferredPhysician} onChange={(e) => setPreferredPhysician(e.target.value)}>
+                <option value="">Select Specialization</option>
+                <option value="generalpractitioner">General Practitioner</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="gynecologistr">Gynecologist</option>
+                <option value="neurologist">Neurologist</option>'
+                <option value="dermatologist">Dermatologist</option>
+                <option value="other">Other</option>
+            </select>
+          </label>}
           <br />
           <label>
             {/* Password: */}

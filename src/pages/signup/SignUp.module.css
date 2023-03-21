@@ -88,3 +88,23 @@
 .tabs-inactive > div {
     visibility: hidden;
 }
+.form-data select {
+    width:86%;
+    padding: 0.8rem 0.6rem;
+    margin-left: 0.5rem;
+    color: #f4fefe;
+    background-color: #ff7626bf;
+    border-radius: 0.4rem;
+    border: none;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.form-data option {
+    background-color: #f4f4f4;
+    color: #383838;
+}
+
+.form-data option:hover{
+    background-color: #f4fefe;
+}

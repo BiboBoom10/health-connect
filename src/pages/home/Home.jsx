@@ -2,8 +2,10 @@ import React from 'react';
 import NavBar from '../../components/Nav/NavBar';
 import classes from './Home.module.css';
 import Doctor1 from '../../Images/Doctor3.svg';
+import { Link } from 'react-router-dom';
 
 function Home() {
+
   return (
     <div>
         <NavBar />
@@ -13,7 +15,7 @@ function Home() {
                 <div className={classes.left}>
                     <h1>Welcome to Health Connect</h1>
                     <p>Get access to the best medical care and advice, right from your device.</p>
-                    <button className={classes['button-1']} type='submit'> Sign Up Now </button>
+                    <Link to="/appointments"><button className={classes['button-1']} type='submit'> Book Appointment Now </button> </Link> 
                 </div>
 
                 <div className={classes['my-image']}>

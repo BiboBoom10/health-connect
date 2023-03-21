@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../services/auth-context';
 import Heading from '../Heading/Heading';
 import classes from './NavBar.module.css';
 
 function NavBar() {
+
+    const { profile } = useContext(AuthContext);
+
   return (
     <div className={classes['nav-position']}>
         <nav className={classes.content}>
@@ -12,36 +16,33 @@ function NavBar() {
             </div>
             <ul className={classes.navigation}>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/home">Home</Link>
                 </li>
                 <li>
                     <Link to="/appointments">Appointments</Link>
                 </li>
                 <li>
-                    <Link to="/medical-records">Medical Records</Link>
-                </li>
-                <li>
-                    <Link to="/prescriptions">Prescriptions</Link>
+                    <Link to="/home">Notification</Link>
                 </li>
                 <li>
                     <Link to="/about-us">About Us</Link>
                 </li>
                 <li>
-                    <Link to="/contact-us">Contact Us</Link>
+                    <Link to="/contacts">Contact Us</Link>
                 </li>
                 <li>
                     <Link to="/blog">Blog</Link>
                 </li>
             </ul>
 
-            <div className={classes['account']}>
+            {!profile && <div className={classes['account']}>
                 <li>
-                    <button className={classes['my-button']}><Link to="/signin">LogIn</Link></button> 
+                    <Link to="/login"><button className={classes['my-button']}>LogIn</button></Link> 
                 </li>
                 <li>
-                    <button className={classes['button2']}> <Link to="/signup">Sign Up</Link></button>
+                    <Link to="/signup"><button className={classes['button2']}>Sign Up</button></Link>
                 </li>
-            </div>
+            </div>}
 
         </nav>
     </div>

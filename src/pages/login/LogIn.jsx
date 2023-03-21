@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './LogIn.module.css';
 import Button from '../../components/Button/Button';
 import User1 from '../../Images/User1.svg';
 import Error from '../../components/ErrorModal/Error';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../services/auth-context';
 
 function LogIn() {
+
+  const { setProfile, login } = useContext(AuthContext);
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState();
   const [doctorSignUp, setDoctorSignUp] = useState(true);
+  const navigate = useNavigate();
 
   const UsernameChangeHandler = (event) => {
     setUsername(event.target.value);
@@ -19,7 +24,7 @@ function LogIn() {
     setPassword(event.target.value);
   };
 
-  const SubmitHandler = (event) => {
+  const SubmitHandler = async (event) => {
     event.preventDefault();
 
     if(username.trim().length === 0 || password.trim().length === 0){
@@ -32,6 +37,8 @@ function LogIn() {
     
     setUsername("");
     setPassword("");
+    setProfile(true)
+    navigate('/home')
   };
 
   const errorHandler = () => {
