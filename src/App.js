@@ -14,6 +14,7 @@ import LogIn from './pages/login/LogIn';
 import SignUp from './pages/signup/SignUp';
 import WaitingList from './pages/Waiting List/WaitingList';
 import AuthContextProvider from './services/auth-context';
+import Notification from './pages/Notification/Notification';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/details' element={<DoctorAppointmentDetails />} />
         <Route path='/waiting' element={<WaitingList />} />
         <Route path='/appointments' element={<AppointmentForm />} />
+        <Route path='/notification' element={<Notification />}></Route>
         {/* <NavBar /> */}
         {/* <Home />
         <AboutUs />

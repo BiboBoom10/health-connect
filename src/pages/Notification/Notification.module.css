@@ -1,0 +1,39 @@
+.content {
+    width: 100%;
+    /* background-color: red; */
+    height: 100vh;
+    top: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.content h1 {
+    color: #3b3b3b;
+}
+
+.person-details {
+    background-color: #ddffff;
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    border-radius: 0.1rem;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.data {
+    color: #3b3b3b;
+}
+
+.person-details p {
+    margin: 0 2rem;
+}
+
+.notify {
+    font-weight: 600;
+    color: #3b3b3b;
+}

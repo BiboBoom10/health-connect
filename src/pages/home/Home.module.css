@@ -71,3 +71,46 @@
     width: 92%;
     height: 20vh;
 }
+
+.my-footer {
+    background-color: #c7ffff;
+    margin-top: 5rem;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.my-footer h2 {
+    color: #3b3b3b;
+}
+
+.footer-links {
+    display: flex;
+}
+
+.footer-links p {
+    margin: 0 1rem;
+    color: #5a5a5a;
+}
+
+.icons {
+    margin: 0 0.5rem;
+    color: #5a5a5a;
+    cursor: pointer;
+}
+
+.icons:hover {
+    color: #ff7426;
+}
+
+.rights {
+    font-size: 0.8rem;
+}
+
+.link {
+    text-decoration: none;
+    color: #5a5a5a;
+    cursor: pointer;
+}
+
