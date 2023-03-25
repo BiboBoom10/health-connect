@@ -1,49 +1,61 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import classes from './LogIn.module.css';
 import Button from '../../components/Button/Button';
 import User1 from '../../Images/User1.svg';
 import Error from '../../components/ErrorModal/Error';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../services/auth-context';
+import ActivityIndicator from '../../components/ActivitiyIndicator/ActivityIndicator';
 
 function LogIn() {
 
-  const { setProfile, login } = useContext(AuthContext);
+  const { login, doctorLogin } = useContext(AuthContext);
 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [regNo, setRegNo] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
-  const [doctorSignUp, setDoctorSignUp] = useState(true);
+  const [doctorSignUp, setDoctorSignUp] = useState(false);
   const navigate = useNavigate();
 
-  const UsernameChangeHandler = (event) => {
-    setUsername(event.target.value);
+  const EmailChangeHandler = (event) => {
+    setEmail(event.target.value);
   };
 
   const PasswordChangeHandler = (event) => {
     setPassword(event.target.value);
   };
 
+  const RegistrationChangeHandler = (event) => {
+    setRegNo(event.target.value);
+  };
+
   const SubmitHandler = async (event) => {
     event.preventDefault();
-
-    if(username.trim().length === 0 || password.trim().length === 0){
-      setError({
-        title : "Invalid Input",
-        message: "Enter a valid username and password"
-      });
-      return;
+    try {
+      setIsLoading(true);
+      const form = { email, password, regNo };
+      doctorSignUp ? await doctorLogin(form) : await login(form);
+      doctorSignUp ? navigate('/doctor-appointment') : navigate('/home')
+    } catch (err) {
+      const errMessage = err?.response?.data?.content || err?.response?.data?.message || err?.message;
+      setError({ title : "Error", message: errMessage });
+    } finally {
+      setIsLoading(false);
     }
-    
-    setUsername("");
-    setPassword("");
-    setProfile(true)
-    navigate('/home')
   };
 
   const errorHandler = () => {
     setError(null);
-  }
+  };
+
+  useEffect(() => {
+      setEmail('');
+      setError();
+      setPassword('');
+      setEmail('');
+    }, [doctorSignUp])
 
   return (
     <div className={classes.partition}>
@@ -64,24 +76,24 @@ function LogIn() {
 
           <div className={classes.tabs}>
 
-            <div className={doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(true)}>
+            <div className={!doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(false)}>
                 <p>Patient</p>
             </div>
 
-            <div className={!doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(false)}>
+            <div className={doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(true)}>
                 <p>Doctor</p>
             </div>
 
           </div>
 
 
-          {!doctorSignUp && <label>
-            {/* Username: */}
-            <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="Doctor Ref. No."/>
-          </label>}
           {doctorSignUp && <label>
             {/* Username: */}
-            <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="UserName"/>
+            <input className={classes['my-input']} type="text" value={regNo} onChange={RegistrationChangeHandler} placeholder="Doctor Ref. No."/>
+          </label>}
+          {!doctorSignUp && <label>
+            {/* Username: */}
+            <input className={classes['my-input']} type="email" value={email} onChange={EmailChangeHandler} placeholder="Email"/>
           </label>}
           <br />
           <label>
@@ -91,7 +103,8 @@ function LogIn() {
           <br />
 
           <div className={classes['button-position']}>
-            <Button type="submit">Log In</Button>
+            {!isLoading && <Button type="submit">Log In</Button>}
+            {isLoading && <ActivityIndicator />}
           </div>
           
         </form>

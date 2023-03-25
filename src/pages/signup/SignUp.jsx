@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import classes from './SignUp.module.css';
 import Button from '../../components/Button/Button';
 import User1 from '../../Images/User1.svg';
 import Error from '../../components/ErrorModal/Error';
+import { AuthContext } from '../../services/auth-context';
+import ActivityIndicator from '../../components/ActivitiyIndicator/ActivityIndicator';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
+
+    const { signup, doctorSignup } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState();
-    const [doctorSignUp, setDoctorSignUp] = useState(true);
+    const [isDoctorSignUp, setIsDoctorSignUp] = useState(false);
     const [preferredPhysician, setPreferredPhysician] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const UsernameChangeHandler = (event) => {
       setUsername(event.target.value);
@@ -30,27 +37,38 @@ function SignUp() {
       setConfirmPassword(event.target.value);
     };
 
-    const SubmitHandler = (event) => {
+    const SubmitHandler = async (event) => {
       event.preventDefault();
-
-      if(username.trim().length === 0 || email.trim().length ===0 || password.trim().length === 0 || confirmPassword.trim().length === 0){
-        setError({
-          title : "Invalid Input",
-          message: "Fill all the input fields"
-        });
+      if (confirmPassword !== password) {
+        setError({ title : "Error", message: 'Your passwords should match' });
         return;
       }
-     
+      setIsLoading(true);
 
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
+      try {
+        const form = { username, email, password, specialization: preferredPhysician  };
+        isDoctorSignUp ? await doctorSignup(form) : await signup(form);
+        isDoctorSignUp ? navigate('/doctor-appointment') : navigate('/home');
+      } catch (err) {
+        const errMessage = err?.response?.data?.content || err?.response?.data?.message || err?.message;
+        setError({ title : "Error", message: errMessage });
+      } finally {
+        setIsLoading(false);
+      }
+
     };
 
     const errorHandler = () => {
       setError(null);
     }
+
+    useEffect(() => {
+      setConfirmPassword('');
+      setEmail('');
+      setError();
+      setPassword('');
+      setUsername('');
+    }, [isDoctorSignUp])
 
   return (
     <div className={classes.partition}>
@@ -71,32 +89,28 @@ function SignUp() {
 
           <div className={classes.tabs}>
 
-            <div className={doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(true)}>
+            <div className={!isDoctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setIsDoctorSignUp(false)}>
                 <p>Patient</p>
             </div>
 
-            <div className={!doctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setDoctorSignUp(false)}>
+            <div className={isDoctorSignUp ? classes['tabs-active'] : classes['tabs-inactive']} onClick={() => setIsDoctorSignUp(true)}>
                 <p>Doctor</p>
             </div>
 
           </div>
 
 
-          { !doctorSignUp && <label>
-            {/* Username: */}
-            <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="Doctor Ref. No."/>
-          </label>}
-          { doctorSignUp && <label>
+          <label>
             {/* Username: */}
             <input className={classes['my-input']} type="text" value={username} onChange={UsernameChangeHandler} placeholder="UserName"/>
-          </label>}
+          </label>
           <br />
           <label>
             {/* Email: */}
             <input className={classes['my-input']} type="email" value={email} onChange={EmailChangeHandler} placeholder="Email"/>
           </label>
           <br />
-          {!doctorSignUp &&  <label htmlFor="preferredPhysician">
+          {isDoctorSignUp &&  <label htmlFor="preferredPhysician">
             <select id="preferredPhysician" value={preferredPhysician} onChange={(e) => setPreferredPhysician(e.target.value)}>
                 <option value="">Select Specialization</option>
                 <option value="generalpractitioner">General Practitioner</option>
@@ -120,7 +134,8 @@ function SignUp() {
           <br />
 
           <div className={classes['button-position']}>
-            <Button className={classes['button-position']} type="submit">Sign Up</Button>
+            {!isLoading && <Button className={classes['button-position']} type="submit">Sign Up</Button>}
+            {isLoading && <ActivityIndicator />}
           </div>
 
           <div>

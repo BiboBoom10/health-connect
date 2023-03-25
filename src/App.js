@@ -35,6 +35,7 @@ function App() {
         <Route path='/waiting' element={<WaitingList />} />
         <Route path='/appointments' element={<AppointmentForm />} />
         <Route path='/notification' element={<Notification />}></Route>
+        <Route path='/doctor-appointment' element={<DoctorAppointmentDetails />} />
         {/* <NavBar /> */}
         {/* <Home />
         <AboutUs />

@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ActivityIndicator from '../../components/ActivitiyIndicator/ActivityIndicator';
+import Error from '../../components/ErrorModal/Error';
 import NavBar from '../../components/Nav/NavBar';
+import { AuthContext } from '../../services/auth-context';
 import classes from './AppointmentForm.module.css';
 
 function AppointmentForm() {
+
+    const { book, profile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [patientName, setPatientName] = useState('');
     const [dob, setDob] = useState('');
@@ -16,16 +23,38 @@ function AppointmentForm() {
     const [preferredPhysician, setPreferredPhysician] = useState('');
     const [insuranceCompany, setInsuranceCompany] = useState('');
     const [additionalNotes, setAdditionalNotes] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState();
 
-    const submitHandler = (event) => {
+    const errorHandler = () => {
+        setError(null);
+      };
+
+    const submitHandler = async (event) => {
         event.preventDefault();
-    }
+        const form = { patientName, dob, gender, contactNumber, email, address, reasonForAppointment, preferredDate, preferredTime, physician: preferredPhysician, insuranceCompany, additionalNotes, user: profile?._id };
+        setIsLoading(true);
+        try {
+            await book(form);
+            navigate('/home');
+        } catch (err) {
+            const errMessage = err?.response?.data?.content || err?.response?.data?.message || err?.message;
+            setError({ title : "Error", message: errMessage });
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        if(!profile) navigate('/login')
+        //eslint-disable-next-line
+    }, [])
 
   return (
     <div>
 
         <NavBar />
-
+        { error && <Error title={error.title} message={error.message} onConfirm={errorHandler}/>}
         <h1 className={classes.heading}>Booking Appointment Form</h1>
         
         <div className={classes.content}>
@@ -149,8 +178,8 @@ function AppointmentForm() {
                         </label>
                     </div>
                 </div>
-
-                <button className={classes['my-button']} type="submit">Submit</button>
+                {isLoading && <ActivityIndicator />}
+                {!isLoading && <button className={classes['my-button']} type="submit">Submit</button>}
 
 
             </form>
