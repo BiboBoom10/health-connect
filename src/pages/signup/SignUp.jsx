@@ -6,6 +6,7 @@ import Error from '../../components/ErrorModal/Error';
 import { AuthContext } from '../../services/auth-context';
 import ActivityIndicator from '../../components/ActivitiyIndicator/ActivityIndicator';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
 
@@ -138,8 +139,12 @@ function SignUp() {
             {isLoading && <ActivityIndicator />}
           </div>
 
-          <div>
+          {/* <div> */}
             {/* <p>Sign Up as a Doctor? <span>Sign Up</span></p> */}
+          {/* </div> */}
+
+          <div className={classes['my-link']}>
+            <p>Already Have An Account? <Link to="/login"> <span className={classes.link}> Sign Up </span> </Link></p>
           </div>
           
         </form>

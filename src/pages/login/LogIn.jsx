@@ -6,6 +6,7 @@ import Error from '../../components/ErrorModal/Error';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../services/auth-context';
 import ActivityIndicator from '../../components/ActivitiyIndicator/ActivityIndicator';
+import { Link } from 'react-router-dom';
 
 function LogIn() {
 
@@ -108,7 +109,13 @@ function LogIn() {
           </div>
           
         </form>
+
+        <div className={classes.signup}>
+          <p>Do Not Have An Account? <Link to="/signup"> <span className={classes.link}> Sign Up </span> </Link></p>
+        </div>
+        
       </div>
+        
       
     </div>
   )

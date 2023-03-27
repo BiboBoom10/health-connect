@@ -3,6 +3,7 @@
     display: flex;
     align-items:center;
     justify-content: space-between;
+    /* background-color: #f93a13; */
 }
 
 .heading {
@@ -24,6 +25,7 @@
     justify-content: center;
     height: 100vh;
     width: 50%;
+    /* margin-left: -2rem; */
     background-color: #c7ffff;
 }
 
@@ -34,6 +36,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 6rem;
 }
 
 .my-input {
@@ -107,4 +110,19 @@
 
 .form-data option:hover{
     background-color: #f4fefe;
+}
+
+.my-link {
+    /* background-color: #f93a13;    */
+    /* position: absolute; */
+    top: 38rem;
+    padding: 1rem;
+    margin-left: 4rem;
+    text-decoration: none;
+}
+
+.link {
+    text-decoration: none;
+    /* background-color: #f93a13; */
+    color: #f93a13;
 }

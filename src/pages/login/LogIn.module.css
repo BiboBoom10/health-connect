@@ -23,9 +23,11 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    flex: 1;
+    /* flex: 1; */
+    width: 50%;
     background-color: #c7ffff;
 }
+
 
 .content {
     /* border: 0.1rem solid gray; */
@@ -33,11 +35,13 @@
     width: 40%;
     display: flex;
     justify-content: flex-start;
-    margin-left: 20%;;
+    margin-left: 10%;
     align-items: center;
+    flex: 1;
 }
 
 .my-input {
+    flex: 1;
     padding: 0.8rem;
     margin: 0.5rem;
     width: 160%;
@@ -89,4 +93,19 @@
 
 .tabs-inactive > div {
     visibility: hidden;
+}
+
+.signup {
+    /* background-color: #f93a13; */
+    position: absolute;
+    top: 38rem;
+    padding: 1rem;
+    margin-left: 4rem;
+    text-decoration: none;
+}
+
+.link {
+    text-decoration: none;
+    /* background-color: #f93a13; */
+    color: #f93a13;
 }
