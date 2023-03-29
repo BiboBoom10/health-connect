@@ -161,9 +161,9 @@ function AppointmentForm() {
                         <label htmlFor="preferredCompany">InsuaranceCompany:
                             <select id="preferredCompany" value={insuranceCompany} onChange={(e) => setInsuranceCompany(e.target.value)}>
                                 <option value="">--Please select--</option>
-                                <option value="male">APA</option>
-                                <option value="female">NHIF</option>
-                                <option value="other">Jubilee</option>
+                                <option value="APA">APA</option>
+                                <option value="NHIF">NHIF</option>
+                                <option value="Jubilee">Jubilee</option>
                                 <option value="other">Other</option>
                             </select>
                         </label>
