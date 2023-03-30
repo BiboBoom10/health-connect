@@ -164,7 +164,7 @@ function AppointmentForm() {
                                 <option value="APA">APA</option>
                                 <option value="NHIF">NHIF</option>
                                 <option value="Jubilee">Jubilee</option>
-                                <option value="other">Other</option>
+                                {/* <option value="other">Other</option> */}
                             </select>
                         </label>
 

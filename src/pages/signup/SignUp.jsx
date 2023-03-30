@@ -144,7 +144,7 @@ function SignUp() {
           {/* </div> */}
 
           <div className={classes['my-link']}>
-            <p>Already Have An Account? <Link to="/login"> <span className={classes.link}> Sign Up </span> </Link></p>
+            <p>Already Have An Account? <Link to="/login"> <span className={classes.link}> Login </span> </Link></p>
           </div>
           
         </form>
