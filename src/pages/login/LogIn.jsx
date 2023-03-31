@@ -111,7 +111,7 @@ function LogIn() {
         </form>
 
         <div className={classes.signup}>
-          <p>Do Not Have An Account? <Link to="/signup"> <span className={classes.link}> Sign Up </span> </Link></p>
+          <p>Do Not Have An Account? <Link to="/signup" style={{ textDecoration: 'none' }}> <span className={classes.link}> Sign Up </span> </Link></p>
         </div>
         
       </div>
