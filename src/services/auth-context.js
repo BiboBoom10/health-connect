@@ -1,8 +1,12 @@
 import { createContext, useState } from "react";
 import axios from 'axios';
 
+const SERVER_URL = 'https://health-connect.onrender.com'
+
 export const AuthContext = createContext({
     profile: false,
+    openDrawer: false,
+    setOpenDrawer: (bool) => {},
     acceptBooking: () => {},
     book: (form) => {},
     doctorLogin: (form) => {},
@@ -17,10 +21,11 @@ export const AuthContext = createContext({
 
 const AuthContextProvider = (props) => {
     const [profile, setProfile] = useState();
+    const [openDrawer, setOpenDrawer] = useState(false)
 
     const login = async (form) => {
         try {
-            const { data } = await axios.post('http://localhost:8000/auth/login', form);
+            const { data } = await axios.post(SERVER_URL + '/auth/login', form);
             setProfile({ ...data.user, isDoc: false });
         } catch (err) {
             throw err;
@@ -29,7 +34,7 @@ const AuthContextProvider = (props) => {
 
     const signup = async (form) => {
         try {
-            const { data } = await axios.post('http://localhost:8000/auth/signup', form);
+            const { data } = await axios.post(SERVER_URL + '/auth/signup', form);
             setProfile({ ...data.user, isDoc: false });
         } catch (err) {
             throw err;
@@ -38,7 +43,7 @@ const AuthContextProvider = (props) => {
 
     const doctorSignup = async (form) => {
         try {
-            const { data } = await axios.post('http://localhost:8000/auth/doctor-register', form);
+            const { data } = await axios.post(SERVER_URL + '/auth/doctor-register', form);
             setProfile({ ...data.doctor, isDoc: true });
         } catch (err) {
             throw err;
@@ -47,7 +52,7 @@ const AuthContextProvider = (props) => {
 
     const doctorLogin = async (form) => {
         try {
-            const { data } = await axios.post('http://localhost:8000/auth/doctor-login', form);
+            const { data } = await axios.post(SERVER_URL + '/auth/doctor-login', form);
             setProfile({ ...data.doctor, isDoc: true });
         } catch (err) {
             throw err;
@@ -56,7 +61,7 @@ const AuthContextProvider = (props) => {
 
     const book = async (form) => {
         try {
-            await axios.post('http://localhost:8000/auth/booking', form);
+            await axios.post(SERVER_URL + '/auth/booking', form);
         } catch (err) {
             throw err;
         }
@@ -64,7 +69,7 @@ const AuthContextProvider = (props) => {
 
     const userBooking = async () => {
         try {
-            const { data } = await axios.get('http://localhost:8000/auth/user-bookings/' + profile._id);
+            const { data } = await axios.get(SERVER_URL + '/auth/user-bookings/' + profile._id);
             return data;
         } catch (err) {
             throw err;
@@ -73,7 +78,7 @@ const AuthContextProvider = (props) => {
 
     const pendingAppointments = async () => {
         try {
-            const {data} = await axios.get('http://localhost:8000/auth/pending-appointments');
+            const {data} = await axios.get(SERVER_URL + '/auth/pending-appointments');
             return data;
         } catch (err) {
             throw err;
@@ -82,7 +87,7 @@ const AuthContextProvider = (props) => {
 
     const acceptBooking = async (id) => {
         try {
-            await axios.patch('http://localhost:8000/auth/accept/' + id);
+            await axios.patch(SERVER_URL + '/auth/accept/' + id);
         } catch (err) {
             throw err;
         }
@@ -90,7 +95,7 @@ const AuthContextProvider = (props) => {
 
     const rejectBooking = async (id) => {
         try {
-            await axios.patch('http://localhost:8000/auth/reject/' + id);
+            await axios.patch(SERVER_URL + '/auth/reject/' + id);
         } catch (err) {
             throw err;
         }
@@ -102,9 +107,11 @@ const AuthContextProvider = (props) => {
         doctorLogin,
         doctorSignup,
         login,
+        openDrawer,
         pendingAppointments,
         profile,
         rejectBooking,
+        setOpenDrawer,
         setProfile,
         signup,
         userBooking,

@@ -37,15 +37,17 @@ function App() {
         <Route path='/notification' element={<Notification />}></Route>
         <Route path='/doctor-appointment' element={<DoctorAppointmentDetails />} />
         {/* <NavBar /> */}
-        {/* <Home />
-        <AboutUs />
-        <Contacts />
-        <Blog />
-        <AppointmentForm />
-        <Dashboard />
+        {/* <Home /> */}
+        {/* <AboutUs /> */}
+        {/* <Contacts /> */}
+        {/* <Blog /> */}
+        {/* <AppointmentForm /> */}
+        {/* <Dashboard />
         <Person />
         <DoctorAppointmentDetails />
         <WaitingList /> */}
+        {/* <LogIn /> */}
+        {/* <GetStarted /> */}
       </Routes>
     </AuthContextProvider>
   );

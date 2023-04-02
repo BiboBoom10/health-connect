@@ -6,15 +6,16 @@ import classes from './NavBar.module.css';
 
 function NavBar() {
 
-    const { profile } = useContext(AuthContext);
+    const { profile, openDrawer, setOpenDrawer } = useContext(AuthContext);
 
   return (
-    <div className={classes['nav-position']}>
+    <div className={classes[`${!openDrawer ? 'nav-hidden' : 'nav-position'}`]}>
         <nav className={classes.content}>
             <div>
                 <Heading>Health Connect</Heading>
             </div>
             <ul className={classes.navigation}>
+                <p onClick={() => {setOpenDrawer(false)}}>Close</p>
                 <li>
                     <Link to="/home">Home</Link>
                 </li>

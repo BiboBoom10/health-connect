@@ -49,3 +49,62 @@
     text-align: justify;
     color: #3f3f3f;
 }
+
+@media only screen and (max-width: 600px) {
+    .blog-align {
+        /* display: grid; */
+        /* grid-template-columns: repeat(3, 1fr); */
+        /* gap: 1rem; */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .blog {
+        background-color: #f8ffff;
+        padding: 0.1rem 1rem 1rem 1rem;
+        margin: 2rem;
+        border-radius: 0.25rem;
+        width: 80%;
+        /* box-shadow: 0.01rem 0.01rem 0.1rem #f93a13; */
+        box-shadow: 0.01rem 0.01rem 0.1rem gray;
+    }
+    
+    .heading {
+        color: #383838;
+        font-size: 2rem;
+        margin-top: 6rem;
+        /* margin-left: 2%; */
+        text-align: center;
+    }
+    
+    
+    .blog h2 {
+        color: #4c4c4c;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .blog p {
+        text-align: center;
+        color: #5a5a5a;
+        font-size: 0.8rem;
+    }
+    
+    .blog span {
+        font-weight: 600;
+    }
+    
+    .blog img {
+        height: 18vh;
+        width: 100%;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .blog section {
+        text-align: justify;
+        color: #3f3f3f;
+        font-size: 0.9rem;
+    }
+    
+}

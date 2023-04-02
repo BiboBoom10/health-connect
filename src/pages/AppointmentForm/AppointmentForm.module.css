@@ -84,3 +84,103 @@
     background-color: #ff7426;
     color: #f4f4f4;
 }
+
+@media only screen and (max-width: 600px) {
+    .content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* background-color: aqua; */
+        padding: 2rem 0;
+        margin-top: -2rem;
+    }
+    
+    .form-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+    }
+    
+    .form-data label {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        flex-direction: column;
+        margin-bottom: -1rem;
+        /* margin: 0 8rem; */
+    }
+    
+    .form-data input {
+        width: 65%;
+        padding: 0.6rem;
+        margin-left: 2rem;
+        border-radius: 0.4rem;
+        border: 0.1rem solid #f9391324;
+        margin-top: 1rem;
+        /* margin-left: -0.1rem; */
+        /* background-color: red; */
+    }
+    
+    .form-data select {
+        width:72%;
+        padding: 0.6rem;
+        margin-left: 2rem;
+        color: #f4fefe;
+        background-color: #ff7626bf;
+        border-radius: 0.4rem;
+        border: none;
+    }
+    
+    .form-data option {
+        background-color: #f4f4f4;
+        color: #383838;
+    }
+    
+    .form-data option:hover{
+        background-color: #f4fefe;
+    }
+    
+    .both {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        /* align-items: center; */
+        /* height: 90vh; */
+        width: 100%;
+        /* border: 0.1rem solid gray; */
+    }
+    
+    .both div {
+        width: 100%;
+    }
+    
+    .heading {
+        color: #383838;
+        font-size: 1.5rem;
+        margin-top: 7rem;
+        /* margin-left: 2%; */
+        text-align: center;
+    }
+    
+    .my-button {
+        /* margin-left: 3rem; */
+        align-self: center;
+        margin-top: 1.2rem;
+        padding: 0.8rem;
+        width: 75%;
+        border: 0.1rem solid #ff7626bf;
+        border-radius: 0.2rem;
+        transform: scale(0.9);
+        transition: 0.2s ease-out;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    .my-button:hover {
+        background-color: #ff7426;
+        color: #f4f4f4;
+    }
+    
+}

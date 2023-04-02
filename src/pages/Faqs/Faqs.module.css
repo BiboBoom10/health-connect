@@ -1,0 +1,23 @@
+.content {
+    background-color : #ffae80;
+    margin: 0 5rem;
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+.faqs {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.content h4 {
+    color:  white;
+}
+
+.content div {
+    margin-left: 1rem;
+}
+
+.content p {
+    margin-left: 1rem;
+}

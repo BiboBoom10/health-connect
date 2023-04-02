@@ -42,3 +42,52 @@
     font-weight: 600;
     margin-left: 1.7rem
 }
+
+@media only screen and (max-width: 600px) {
+    .content-align {
+        height: 90vh;
+        margin-top: 4rem;
+        /* border: 0.1rem solid gray; */
+        display: flex;
+        justify-content: center;
+    }
+    
+    .content {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        flex-direction: column;
+    }
+    
+    .image-align {
+        /* border: 0.1rem solid gray; */
+    }
+    
+    .image-align img {
+        height: 15rem;
+        margin-top: 6rem;
+    }
+    
+    .heading {
+        color: #383838;
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .my-text {
+        color: #5a5a5a;
+        text-align: justify;
+        font-size: 1rem;
+        margin-top: -1rem;
+    }
+    
+    .text-2 {
+        font-weight: 600;
+        margin-left: 1rem;
+    }
+    
+    .text-3 {
+        font-weight: 600;
+        margin-left: 1.7rem
+    }
+}

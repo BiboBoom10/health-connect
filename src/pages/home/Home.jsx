@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import NavBar from '../../components/Nav/NavBar';
 import classes from './Home.module.css';
 import Doctor1 from '../../Images/Doctor3.svg';
@@ -7,12 +7,17 @@ import { FiFacebook } from 'react-icons/fi';
 import { FiTwitter } from 'react-icons/fi';
 import { FaInstagram } from 'react-icons/fa';
 import { FaRegCopyright } from 'react-icons/fa';
+import Faqs from '../Faqs/Faqs';
+import { AuthContext } from '../../services/auth-context';
 
 function Home() {
+
+    const { setOpenDrawer } = useContext(AuthContext);
 
   return (
     <div>
         <NavBar />
+        <p className={classes.hide} onClick={() => { setOpenDrawer(true) }}>Hamburger</p>
 
         <div className={classes.home}>
             <div className={classes.content}>
@@ -29,12 +34,14 @@ function Home() {
             </div>
             
         </div>
-{/* 
-        <div className={classes['box-align']}>
+
+        {/* <div className={classes['box-align']}>
             <div className={classes.box}>
 
             </div>
         </div> */}
+
+        {/* <Faqs /> */}
 
         <footer className={classes['my-footer']}>
             <span>
